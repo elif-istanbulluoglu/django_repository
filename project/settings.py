@@ -153,6 +153,12 @@ STATICFILES_DIRS = [
     BASE_DIR / 'relecloud' / 'static',
 ]
 
+# settings.py dosyanıza ekleyin
+
+# Azure App Service'te HTTPS trafiğini doğru yönetmek için kritik ayarlar:
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
