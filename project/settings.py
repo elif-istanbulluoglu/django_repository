@@ -27,9 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-@d_)-ua!f#jxj-++b+2u3
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
-    'ant-space-tour3-areqgmb4debbhjdr.switzerlandnorth-01.azurewebsites.net',
-    '127.0.0.1',
-    'localhost',
+    '*'
 ]
 
 
