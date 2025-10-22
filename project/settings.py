@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-@d_)-ua!f#jxj-++b+2u3@j97nhcw)x#kg2(rg5f2#8l4(!*s=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-
+# DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = True
 ALLOWED_HOSTS = [
     '*'
 ]
@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',  # MEDIA için ekleyin
             ],
         },
     },
@@ -151,13 +152,16 @@ STATICFILES_DIRS = [
     BASE_DIR / 'relecloud' / 'static',
 ]
 
-# settings.py dosyanıza ekleyin
-
 # Azure App Service'te HTTPS trafiğini doğru yönetmek için kritik ayarlar:
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# ==================== MEDIA FILES (USER UPLOADED FILES) ====================
+# Bu bölüm EKSİKTİ - Resimler için gerekli!
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
